@@ -26,7 +26,7 @@ async function welcome() {
           "Terminated."
         )}
         So try your hardest to get the questions right.
-        I was made by Spoopy, Spoopy#4455 on Discord.
+        I was made by Mac.
     `);
 }
 
@@ -108,7 +108,44 @@ async function question4() {
 
   return handleAnser(answers.question_4 == "East Asia");
 }
+async function question5() {
+    const answers = await Inquirer.prompt({
+        name: "question_5",
+        type: "list",
+        message: "What is the mouth southern point in the UK?",
+        choices: [
+            "Edinburgh",
+            "Belfast",
+            "Derbyshire",
+            "Sheffield",
+            "Brighton",
+            "Exeter",
+            "Cardiff",
+            "Lands End"
+        ],
+    });
 
+    return handleAnser(answers.question_5 == "Lands End");
+}
+async function question6() {
+    const answers = await Inquirer.prompt({
+        name: "question_6",
+        type: "list",
+        message: "What is the mouth Northern point in the UK?",
+        choices: [
+            "Edinburgh",
+            "Belfast",
+            "Derbyshire",
+            "Sheffield",
+            "Brighton",
+            "Exeter",
+            "Cardiff",
+            "John o Groats"
+        ],
+    });
+
+    return handleAnser(answers.question_6 == "John o Groats");
+}
 async function handleAnser(isCorrect) {
   const spinner = createSpinner("Checking your input...").start();
   await sleep();
@@ -140,4 +177,6 @@ await question1();
 await question2();
 await question3();
 await question4();
+await question5();
+await question6()
 await winner();
